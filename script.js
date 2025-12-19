@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const errorElement = document.getElementById('phone-error');
         
         if (!phone) {
-            // Телефон не обязателен, очищаем ошибку
             clearError(phoneInput, errorElement);
             return true;
         }
@@ -211,14 +210,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Показываем модальное окно
             successModal.style.display = 'flex';
             
-            // Очищаем форму (в реальном проекте здесь была бы отправка на сервер)
             setTimeout(() => {
                 form.reset();
-                // Сбрасываем стили полей
                 document.querySelectorAll('input').forEach(input => {
                     input.classList.remove('success', 'error');
                 });
-                // Сбрасываем иконки видимости пароля
                 togglePasswordBtn.innerHTML = '<i class="fas fa-eye"></i>';
                 toggleConfirmPasswordBtn.innerHTML = '<i class="fas fa-eye"></i>';
             }, 2000);
